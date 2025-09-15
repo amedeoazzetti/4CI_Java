@@ -16,5 +16,7 @@ public class App {
         Numero n1 = new Frazione(2, 3);
         Numero n2 = new Frazione(2, 3);
 
+        
+
     }
 }
