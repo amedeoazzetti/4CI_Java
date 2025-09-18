@@ -1,3 +1,3 @@
-public class TipoEquip {
-    
+public enum TipoEquip {
+    Arma, Armatura, Pozione, Misc
 }
