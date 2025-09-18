@@ -1,4 +1,4 @@
 public enum  Razza {
 
-    Umano, Elfo, Nano, Orco, Hobbit, Goblin, Ent
+    Umano, Elfo, Nano, Orco, Hobbit, Goblin, Ent, Mago
 }

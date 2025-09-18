@@ -1,3 +1,3 @@
 public enum TipoEquip {
-    Arma, Armatura, Pozione, Misc
+    ArmaMelee, Armatura, Pozione, Misc, ArmaRanged
 }

@@ -1,7 +1,7 @@
 
 import java.util.ArrayList;
 
-public abstract class Giocatore{
+public abstract class Giocatore {
 
     protected String nome;
     protected int hp;
@@ -21,6 +21,34 @@ public abstract class Giocatore{
         this.inventario = new ArrayList<>();
     }
 
+    public void attaccaMischia(Giocatore target, int danno) {
+
+        boolean haArma = false;
+
+        //cerco nell'inventario se ho almeno un arma 
+        for (Equip e : inventario) {
+            if (e.getTipo() == TipoEquip.ArmaMelee) {
+                haArma = true;
+                break;
+            }
+        }
+
+        //controllare l'istanza del mio oggetto e attacco solo se ho l'arma
+        if (!(this instanceof Guerriero ) || !haArma) {
+            return;
+        }
+
+        // verifico se il target ha armatura
+        int armatura = 0;
+
+        for (Equip equip : target.getInventario()) {
+            if (equip.getTipo() == TipoEquip.Armatura) {
+                armatura++;
+            }
+        }
+
+    }
+
     public int getHp() {
         return hp;
     }
@@ -33,6 +61,8 @@ public abstract class Giocatore{
         return peso;
     }
 
-
+    public ArrayList<Equip> getInventario() {
+        return inventario;
+    }
 
 }
