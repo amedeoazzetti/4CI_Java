@@ -26,7 +26,8 @@ public class App {
         aragorn.aggiungiEquip(elmo);
         gandalf.aggiungiEquip(armor);
 
+        gandalf.attacca(aragorn, 30);
+        team.salutaTutti();
         
-
     }
 }
