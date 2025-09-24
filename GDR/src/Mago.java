@@ -25,7 +25,6 @@ public class Mago extends Giocatore {
             mana -= MANA_ATT;
         }
 
-
         int multi = 1;
         if (target instanceof Guerriero || target instanceof Arciere) {
             multi = 2;
@@ -34,7 +33,17 @@ public class Mago extends Giocatore {
         // modifico i puntivita del target
         int dannoFinale = multi * danno / (armatura + 1);
         target.setHp(target.getHp() - dannoFinale);
+
+
+        // se ho sconfitto qualcuno, ricarico
+        if (target.isMorto()) {
+            ricaricaMana();
+        }
         return dannoFinale;
 
+    }
+
+    private void ricaricaMana() {
+        mana = MANA_MAX;
     }
 }
