@@ -22,7 +22,7 @@ public abstract class Giocatore {
         this.inventario = new ArrayList<>();
     }
 
-    public void attacca(Giocatore target, int danno) {
+    public int attacca(Giocatore target, int danno) {
 
         boolean haArma = false;
 
@@ -36,7 +36,7 @@ public abstract class Giocatore {
 
         //controllare l'istanza del mio oggetto e attacco solo se ho l'arma
         if (!(this instanceof Guerriero) || !haArma) {
-            return;
+            return 0;
         }
 
         // verifico se il target ha armatura
@@ -48,6 +48,11 @@ public abstract class Giocatore {
             }
             target.setHp(target.getHp() - danno / (armatura + 1));
         }
+
+          // modifico i puntivita del target
+          int dannoFinale = danno / (armatura + 1);
+          target.setHp(target.getHp() - dannoFinale); 
+          return dannoFinale;
 
     }
 
