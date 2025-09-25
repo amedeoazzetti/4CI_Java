@@ -1,4 +1,6 @@
 
+
+
 public class Medico extends Giocatore {
     final int MANA_CURA = 20;
 
@@ -27,6 +29,16 @@ public class Medico extends Giocatore {
 
     @Override
     public void ricaricaMana() {
+        
+    }
+    public boolean rianima(Giocatore target){
+        // se il giocatore è ancora vivo, non rianimo
+        if (!target.isMorto()) {
+            return false;
+        }else{
+            target.setHp(target.HP_MAX / 4);
+            return true;
+        }
         
     }
 }
