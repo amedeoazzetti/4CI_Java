@@ -15,7 +15,7 @@ public class Medico extends Giocatore {
                 mana -= MANA_CURA;
 
                 int nuovoHp = target.getHp() + cura;
-                target.setHp(nuovoHp > HP_MAX ? HP_MAX : nuovoHp);
+                target.setHp(nuovoHp > target.HP_MAX ? target.HP_MAX : nuovoHp);
                 target.setHp(hp);
 
                 return cura;

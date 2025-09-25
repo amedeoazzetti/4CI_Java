@@ -34,5 +34,11 @@ public class Arciere extends Giocatore {
         
         return dannoFinale;
 
+        
  }
+
+    @Override
+    public void ricaricaMana() {
+
+    }
 }

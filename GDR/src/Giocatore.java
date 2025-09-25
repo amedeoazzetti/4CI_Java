@@ -92,6 +92,8 @@ public abstract class Giocatore {
         return hp<=0;
     }
 
+    public abstract void ricaricaMana();
+
     public void saluta(){
         System.out.println("Ciao, mi chiamo "+ nome+" e sono un "+ razza);
     }
