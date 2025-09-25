@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Squadra {
     
-    private ArrayList<Giocatore> giocatori;
+    private final ArrayList<Giocatore> giocatori;
 
     public Squadra(){
 
