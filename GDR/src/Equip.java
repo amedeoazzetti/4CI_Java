@@ -1,7 +1,7 @@
 public class Equip {
-    private String nome;
-    private int peso;
-    private TipoEquip tipo;
+    private final String nome;
+    private final int peso;
+    private final TipoEquip tipo;
 
     public Equip(String nome, int peso, TipoEquip tipo) {
         this.nome = nome;
