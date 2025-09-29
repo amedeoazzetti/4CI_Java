@@ -11,18 +11,20 @@ public class Player {
     private final int HpMax;
     private double BaseDamage, finalDamage, baseFireRate, finalFireRate;
 
-    public Player(double BaseDamage, int HpMax, double baseFireRate, int hp) {
+    public Player(double BaseDamage, double baseFireRate, int hp) {
         this.BaseDamage = BaseDamage;
-        this.HpMax = HpMax;
         this.baseFireRate = baseFireRate;
-        this.hp = hp;
+        this.hp = this.HpMax = hp;
+        passives = new ArrayList<>();
+        collectibles = new ArrayList<>();
     }
 
-    
+    public double getFinalDamage() {
+        return finalDamage;
+    }
 
-
-
-
-
+    public double getFinalFireRate() {
+        return finalFireRate;
+    }
 
 }

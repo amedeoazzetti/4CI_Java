@@ -1,7 +1,9 @@
 public abstract class Item {
+    protected String name;
     private double damageMod, fireMod;
 
-    public Item(double damageMod, double fireMod) {
+    public Item(String name, double damageMod, double fireMod) {
+        this.name = name;
         this.damageMod = damageMod;
         this.fireMod = fireMod;
     }
