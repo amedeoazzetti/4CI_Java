@@ -27,4 +27,21 @@ public class Player {
         return finalFireRate;
     }
 
+    public void updateStats(){
+        finalDamage = BaseDamage;
+        finalFireRate = baseFireRate;
+
+        for (Passive p : passives) {
+            finalDamage *= p.getDamageMod();
+            finalFireRate *= p.getFireMod();
+        }
+        if (Active!=null) {
+            finalDamage *= Active.getDamageMod();
+            finalFireRate *= Active.getFireMod();
+        }
+        if (trinket!=null) {
+            finalDamage *= trinket.getDamageMod();
+            finalFireRate *= trinket.getFireMod();
+        }
+    }
 }
