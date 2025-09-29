@@ -6,5 +6,13 @@ public abstract class Item {
         this.fireMod = fireMod;
     }
 
+    public double getDamageMod() {
+        return damageMod;
+    }
+
+    public double getFireMod() {
+        return fireMod;
+    }
+
     
 }
