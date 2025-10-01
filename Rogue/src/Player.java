@@ -19,10 +19,6 @@ public class Player {
         collectibles = new ArrayList<>();
     }
 
-    public void updateStats() {
-             
-    }
-
     public void viewStats() {
         System.out.println("HP: " + hp + "/" + HpMax);
         System.out.println("Damage: " + finalDamage);
@@ -34,13 +30,47 @@ public class Player {
             passives.add((Passive) nuovo);
         } else if (nuovo instanceof Active) {
             Active = (Active) nuovo;
-        } else if (nuovo instanceof Trinket) {
+        } else {
             trinket = (Trinket) nuovo;
         }
     }
 
     public void dropTrinket() {
         trinket = null;
+    }
+
+    public boolean ricarica() {
+        boolean remove = false;
+        for (int i = collectibles.size() - 1; i >= 0; i--) {
+            if (collectibles.get(i) instanceof Battery) {
+
+                collectibles.remove(i);
+                Active.reload();
+                remove = true;
+                return remove;
+
+            }
+
+        }
+        return remove;
+    }
+
+    public boolean cura() {
+        boolean remove = false;
+
+        for (int i = collectibles.size() - 1; i >= 0; i--) {
+            if (collectibles.get(i) instanceof Heart) {
+                collectibles.remove(i);
+                if (hp < HpMax) {
+                    hp += 1;
+                    remove = true;
+                    return remove;
+
+                }
+            }
+
+        }
+        return remove;
     }
 
     public boolean checkCollectibles() {
@@ -53,6 +83,7 @@ public class Player {
         }
         return removed;
     }
+
     public double getFinalDamage() {
         return finalDamage;
     }
@@ -61,7 +92,7 @@ public class Player {
         return finalFireRate;
     }
 
-    public void updateStats(){
+    public void updateStats() {
         finalDamage = BaseDamage;
         finalFireRate = baseFireRate;
 
@@ -69,13 +100,14 @@ public class Player {
             finalDamage *= p.getDamageMod();
             finalFireRate *= p.getFireMod();
         }
-        if (Active!=null) {
+        if (Active != null) {
             finalDamage *= Active.getDamageMod();
             finalFireRate *= Active.getFireMod();
         }
-        if (trinket!=null) {
+        if (trinket != null) {
             finalDamage *= trinket.getDamageMod();
             finalFireRate *= trinket.getFireMod();
         }
     }
+
 }
