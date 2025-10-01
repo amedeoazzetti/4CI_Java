@@ -40,19 +40,18 @@ public class Player {
     }
 
     public boolean ricarica() {
-        boolean remove = false;
         for (int i = collectibles.size() - 1; i >= 0; i--) {
             if (collectibles.get(i) instanceof Battery) {
 
                 collectibles.remove(i);
                 Active.reload();
-                remove = true;
-                return remove;
+                return true;
+                
 
             }
 
         }
-        return remove;
+        return false;
     }
 
     public boolean cura() {
@@ -60,8 +59,8 @@ public class Player {
 
         for (int i = collectibles.size() - 1; i >= 0; i--) {
             if (collectibles.get(i) instanceof Heart) {
-                collectibles.remove(i);
                 if (hp < HpMax) {
+                    collectibles.remove(i);
                     hp += 1;
                     remove = true;
                     return remove;
